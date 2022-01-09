@@ -35,6 +35,7 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: all 0.35s;
   }
 
   svg {
@@ -168,6 +169,8 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  opacity: 0;
+  transition: all 0.35s;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -240,5 +243,17 @@
         height: 10px;
       }
     }
+  }
+
+  .social-block--active & {
+    animation: fadeIn 0.35s forwards, showUp 0.35s forwards;
+  }
+
+  .social-block--active &--insta {
+    animation-delay: 0.15s;
+  }
+
+  .social-block--active &--vk {
+    animation-delay: 0.3s;
   }
 }

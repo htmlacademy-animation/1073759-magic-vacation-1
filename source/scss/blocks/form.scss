@@ -2,6 +2,23 @@
   position: relative;
   display: flex;
   align-items: center;
+  animation: formGrowDesk 0.5s forwards;
+
+  @media (min-width: $stop-scaling) {
+    animation: formGrowDeskXL 0.5s forwards;
+  }
+
+  @media (orientation: portrait) {
+    animation: formGrowMobile 0.5s forwards;
+  }
+
+  @media (max-width: $tablet) and (orientation: landscape) {
+    animation: formGrowTablet 0.5s forwards;
+  }
+
+  @media (max-width: $mobile) and (orientation: landscape) {
+    animation: formGrowMobile 0.5s forwards;
+  }
 }
 
 .form__label {
