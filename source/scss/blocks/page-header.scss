@@ -5,6 +5,9 @@
   right: 0;
   padding: 2.7rem 0;
   z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s cubic-bezier(0, 0, 0.5, 0.9);
 
   @media (min-width: $stop-scaling) {
     padding: 27px 0;
@@ -19,6 +22,11 @@
   }
 }
 
+.loaded-page .page-header {
+  opacity: 1;
+  visibility: visible;
+}
+
 .page-header__wrapper {
   @include container;
   display: flex;
@@ -30,11 +38,13 @@
   @include hover;
   position: relative;
   flex: none;
+  left: -1rem;
   top: -0.5rem;
   display: block;
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  transition: left 0.3s cubic-bezier(0, 0, 0.5, 0.9);
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -69,6 +79,10 @@
     width: 100%;
     height: auto;
   }
+}
+
+.loaded-page .page-header__logo {
+  left: 0;
 }
 
 .page-header__toggler {
