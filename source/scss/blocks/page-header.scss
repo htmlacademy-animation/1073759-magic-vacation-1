@@ -7,7 +7,7 @@
   z-index: 10;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s cubic-bezier(0, 0, 0.5, 0.9);
 
   @media (min-width: $stop-scaling) {
     padding: 27px 0;
@@ -44,7 +44,7 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
-  transition: left 0.3s;
+  transition: left 0.3s cubic-bezier(0, 0, 0.5, 0.9);
 
   @media (min-width: $stop-scaling) {
     top: -5px;
