@@ -8,6 +8,7 @@ export default class FullPageScroll {
 
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
+    this.backgroundScreen = document.querySelector(`.background-screen`);
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
@@ -46,7 +47,14 @@ export default class FullPageScroll {
   }
 
   changePageDisplay() {
-    this.changeVisibilityDisplay();
+    const currentActiveScreen = document.querySelector(`.screen.active`);
+    const nextActiveScreen = this.screenElements[this.activeScreen];
+
+    if (currentActiveScreen && currentActiveScreen.classList.contains(`screen--story`) && nextActiveScreen.classList.contains(`screen--prizes`)) {
+      this.startBackgroundAnimation();
+    } else {
+      this.changeVisibilityDisplay();
+    }
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
   }
@@ -88,5 +96,13 @@ export default class FullPageScroll {
     } else {
       this.activeScreen = Math.max(0, --this.activeScreen);
     }
+  }
+
+  startBackgroundAnimation() {
+    this.backgroundScreen.classList.add(`background-screen--expanded`);
+    this.backgroundScreen.ontransitionend = () => {
+      this.changeVisibilityDisplay();
+      this.backgroundScreen.classList.remove(`background-screen--expanded`);
+    };
   }
 }
