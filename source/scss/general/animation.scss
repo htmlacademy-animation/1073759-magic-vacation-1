@@ -28,6 +28,16 @@
   }
 }
 
+@keyframes showLeftShort {
+  0% {
+    transform: translateX(10%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
 @keyframes formGrowDesk {
   0% {
     padding-left: calc(100% - 33rem);
@@ -65,5 +75,25 @@
 
   100% {
     padding-left: 0;
+  }
+}
+
+@keyframes growScale {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes whiteTextFadeIn {
+  0% {
+    color: rgba($color: #ffffff, $alpha: 0);
+  }
+
+  100% {
+    color: rgba($color: #ffffff, $alpha: 1);
   }
 }

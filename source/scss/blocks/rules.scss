@@ -184,6 +184,19 @@
       min-height: calc(1.4rem * 2.2);
     }
   }
+
+  @for $i from 0 through 4 {
+    &:nth-child(#{$i}) {
+      &::before {
+        animation: growScale .2s cubic-bezier(0.2, 0, 0.7, 1.6) (.2s * $i) both,
+        whiteTextFadeIn .15s ease-in-out (.2s * $i + .05s) both;
+      }
+
+      p {
+        animation: showLeftShort .25s cubic-bezier(0, 0, 0.7, 1) (.2s * $i + .2s) both, fadeIn .2s ease-in-out (.2s * $i + .2s) both;
+      }
+    }
+  }
 }
 
 .rules__link {
