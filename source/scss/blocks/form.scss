@@ -97,6 +97,7 @@
 
 .form__button {
   flex-grow: 1;
+  animation: btnTextFadeIn .4s ease-in-out backwards;
 
   @media (orientation: portrait) {
     position: relative;
